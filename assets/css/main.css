@@ -12,19 +12,19 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Raleway",  sans-serif;
-  --nav-font: "Poppins",  sans-serif;
+  --default-font: "Inter", system-ui, -apple-system, sans-serif;
+  --heading-font: "Outfit", sans-serif;
+  --nav-font: "Inter", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #050d18; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #149ddd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --background-color: #ffffff;
+  --default-color: #1e293b;
+  --heading-color: #0f172a;
+  --accent-color: #06b6d4; /* Vibrant Cyan */
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -45,10 +45,10 @@
 }
 
 .dark-background {
-  --background-color: #040b14;
-  --default-color: #ffffff;
+  --background-color: #020617; /* Deep Slate/Navy */
+  --default-color: #f1f5f9;
   --heading-color: #ffffff;
-  --surface-color: #151f2b;
+  --surface-color: #0f172a;
   --contrast-color: #ffffff;
 }
 
@@ -144,7 +144,9 @@ h6 {
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: color-mix(in srgb, var(--background-color) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   position: fixed;
   top: 0;
   left: 0;
@@ -1272,4 +1274,41 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/* Custom Utilities & Animations */
+.text-gradient {
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.portfolio-content, .service-item {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.portfolio-content:hover, .service-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.social-links a {
+  transition: all 0.3s ease !important;
+}
+
+.social-links a:hover {
+  transform: scale(1.2) rotate(5deg);
+  background: var(--accent-color) !important;
+  color: #fff !important;
+}
+
+.navmenu a {
+  transition: all 0.3s ease;
+}
+
+.navmenu a:hover {
+  padding-left: 15px !important;
 }
